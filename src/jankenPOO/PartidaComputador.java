@@ -4,40 +4,41 @@ import java.util.Random;
 
 public class PartidaComputador {
 
-	private int jogadaAJogadorH;
-	private int jogadaAJogadorC;
+	private int jogadaJogadorH;
+	private int jogadaJogadorC;
 	
-	public PartidaComputador(int jogadaAJogadorH, int jogadaAJogadorC) {
-		this.jogadaAJogadorH = jogadaAJogadorH;
-		this.jogadaAJogadorC = jogadaAJogadorC;
+	public PartidaComputador(int jogadaAJogadorH) {
+		this.jogadaJogadorH = jogadaAJogadorH;
 	}
 
-	public int getJogadaAJogadorH() {
-		return jogadaAJogadorH;
+	public int getJogadaJogadorH() {
+		return jogadaJogadorH;
 	}
 
-	public void setJogadaAJogadorH(int jogadaAJogadorH) {
-		this.jogadaAJogadorH = jogadaAJogadorH;
+	public void setJogadaJogadorH(int jogadaJogadorH) {
+		this.jogadaJogadorH = jogadaJogadorH;
 	}
 	
-	public int getJogadaAJogadorC() {
-		return jogadaAJogadorC;
+	public int getJogadaJogadorC() {
+		return jogadaJogadorC;
 	}
 	
-	public void setJotadaAJogadorC(int jogadaAJogadorC) {
-		this.jogadaAJogadorC = jogadaAJogadorC;
+	public void setJogadaJogadorC() {
+		Random geradorJogadaC = new Random();
+		int geradorJogadaJogadorC = geradorJogadaC.nextInt(3) + 1;
+		this.jogadaJogadorC = geradorJogadaJogadorC;
 	}
 	
 	public String retornoJogada() {
 		String jogada = null;
 		
-		if (jogadaAJogadorC == 1) {
+		if (jogadaJogadorC == 1) {
 			jogada = "Pedra";
 		}
-		if (jogadaAJogadorC == 2) {
+		if (jogadaJogadorC == 2) {
 			jogada = "Papel";
 		}
-		if (jogadaAJogadorC == 3) {
+		if (jogadaJogadorC == 3) {
 			jogada = "Tesoura";
 		}
 		
@@ -46,19 +47,19 @@ public class PartidaComputador {
 	
 	public int acaoRodada() {
 		int resultado = 0;
-		if (jogadaAJogadorH == jogadaAJogadorC) {
+		if (jogadaJogadorH == jogadaJogadorC) {
 			resultado = 0;
 		}
-		else if ((jogadaAJogadorH - jogadaAJogadorC) == -1) {
+		else if ((jogadaJogadorH - jogadaJogadorC) == -1) {
 			resultado = -1;
 		}
-		else if ((jogadaAJogadorH - jogadaAJogadorC) == 2) {
+		else if ((jogadaJogadorH - jogadaJogadorC) == 2) {
 			resultado = 2;
 		}
-		else if ((jogadaAJogadorH - jogadaAJogadorC) == 1) {
+		else if ((jogadaJogadorH - jogadaJogadorC) == 1) {
 			resultado = 1;
 		}
-		else if ((jogadaAJogadorH - jogadaAJogadorC) == -2) {
+		else if ((jogadaJogadorH - jogadaJogadorC) == -2) {
 			resultado = -2;
 		}
 		return resultado;

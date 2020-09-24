@@ -1,6 +1,5 @@
 package jankenPOO;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -28,24 +27,35 @@ public class Main {
 			String nomeJogador02 = (scanner.nextLine());
 			Jogador jogador02 = new Jogador(nomeJogador02);
 
-			System.out.println("\nEsta será uma partida de " + jogador01.toString() + " contra " + jogador02.toString()
-					+ ". Boa sorte!\n");
+			int novaRodada = 1;
 
-			System.out.print(jogador01.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
-			int jogadaAJogador01 = Integer.valueOf(scanner.nextLine());
+			while (novaRodada == 1) {
 
-			System.out.print("\n" + jogador02.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
-			int jogadaAJogador02 = Integer.valueOf(scanner.nextLine());
+				System.out.println("\nEsta será uma partida de " + jogador01.toString() + " contra "
+						+ jogador02.toString() + ". Boa sorte!\n");
 
-			PartidaHumana partidaHumana = new PartidaHumana(jogadaAJogador01, jogadaAJogador02);
+				System.out.print(jogador01.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
+				int jogadaJogador01 = Integer.valueOf(scanner.nextLine());
 
-			if (partidaHumana.acaoRodada() == 0) {
-				System.out.println("\nA partida terminou em empate.");
-			} else if (partidaHumana.acaoRodada() == 1 || partidaHumana.acaoRodada() == -2) {
-				System.out.println("\nVitoria do jogador " + jogador01.toString() + ".");
-			} else if (partidaHumana.acaoRodada() == -1 || partidaHumana.acaoRodada() == 2) {
-				System.out.println("\nVitoria do jogador " + jogador02.toString() + ".");
+				System.out.print(
+						"\n" + jogador02.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
+				int jogadaJogador02 = Integer.valueOf(scanner.nextLine());
+
+				PartidaHumana partidaHumana = new PartidaHumana(jogadaJogador01, jogadaJogador02);
+
+				if (partidaHumana.acaoRodada() == 0) {
+					System.out.println("\nA partida terminou em empate.");
+				} else if (partidaHumana.acaoRodada() == 1 || partidaHumana.acaoRodada() == -2) {
+					System.out.println("\nVitoria do jogador " + jogador01.toString() + ".");
+				} else if (partidaHumana.acaoRodada() == -1 || partidaHumana.acaoRodada() == 2) {
+					System.out.println("\nVitoria do jogador " + jogador02.toString() + ".");
+				}
+				
+				System.out.print("\nDeseja jogar novamente? [1] SIM [0] NÃO --> ");
+				novaRodada = Integer.valueOf(scanner.nextLine());
 			}
+			
+			System.out.println("\nObrigado por jogar o jankenPOO!");
 		}
 
 		else if (selecaoMenu == 2) {
@@ -54,30 +64,40 @@ public class Main {
 			String nomeJogador = (scanner.nextLine());
 			Jogador jogador = new Jogador(nomeJogador);
 
-			System.out.println("\nEsta será uma partida de " + jogador.toString() + " contra o computador. Boa sorte!\n");
+			int novaRodada = 1;
 
-			System.out.print(jogador.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
-			int jogadaAJogadorH = Integer.valueOf(scanner.nextLine());
+			while (novaRodada == 1) {
 
-			Random geradorJogadaC = new Random();
-			int jogadaAJogadorC = geradorJogadaC.nextInt(3) + 1;
+				System.out.println(
+						"\nEsta será uma partida de " + jogador.toString() + " contra o computador. Boa sorte!\n");
 
-			PartidaComputador partidaComputador = new PartidaComputador(jogadaAJogadorH, jogadaAJogadorC);
+				System.out.print(jogador.toString() + " faça sua escolha: [1] PEDRA, [2] PAPEL, [3] TESOURA --> ");
+				int jogadaJogadorH = Integer.valueOf(scanner.nextLine());
 
-			System.out.println("\nO computador escolheu " + partidaComputador.retornoJogada() + ".");
+				PartidaComputador partidaComputador = new PartidaComputador(jogadaJogadorH);
 
-			if (partidaComputador.acaoRodada() == 0) {
-				System.out.println("\nA partida terminou em empate.");
-			} else if (partidaComputador.acaoRodada() == 1 || partidaComputador.acaoRodada() == -2) {
-				System.out.println("\nVitoria do jogador " + jogador.toString() + ".");
-			} else if (partidaComputador.acaoRodada() == -1 || partidaComputador.acaoRodada() == 2) {
-				System.out.println("\nVitoria do computador.");
+				partidaComputador.setJogadaJogadorC();
+				
+				System.out.println("\nO computador escolheu " + partidaComputador.retornoJogada() + ".");
+
+				if (partidaComputador.acaoRodada() == 0) {
+					System.out.println("\nA partida terminou em empate.");
+				} else if (partidaComputador.acaoRodada() == 1 || partidaComputador.acaoRodada() == -2) {
+					System.out.println("\nVitoria do jogador " + jogador.toString() + ".");
+				} else if (partidaComputador.acaoRodada() == -1 || partidaComputador.acaoRodada() == 2) {
+					System.out.println("\nVitoria do computador.");
+				}
+				
+				System.out.print("\nDeseja jogar novamente? [1] SIM [0] NÃO --> ");
+				novaRodada = Integer.valueOf(scanner.nextLine());
 			}
 			
-		} 
+			System.out.println("\nObrigado por jogar o jankenPOO!");
+			
+			} 
 		
 		else if (selecaoMenu == 0) {
-			System.out.println("Obrigado por jogar o jankenPOO!");
+			System.out.println("\nObrigado por jogar o jankenPOO!");
 
 			}
 		}

@@ -2,45 +2,45 @@ package jankenPOO;
 
 public class PartidaHumana {
 	
-	private int jogadaAJogador01;
-	private int jogadaAJogador02;
+	private int jogadaJogador01;
+	private int jogadaJogador02;
 	
-	public PartidaHumana(int jogadaAJogador01, int jogadaAJogador02) {
-		this.jogadaAJogador01 = jogadaAJogador01;
-		this.jogadaAJogador02 = jogadaAJogador02;
+	public PartidaHumana(int jogadaJogador01, int jogadaJogador02) {
+		this.jogadaJogador01 = jogadaJogador01;
+		this.jogadaJogador02 = jogadaJogador02;
 	}
 	
-	public int getJogadaAJogador01() {
-		return jogadaAJogador01;
+	public int getJogadaJogador01() {
+		return jogadaJogador01;
 	}
 	
-	public void setJogadaAJogador01(int jogadaAJogador01) {
-		this.jogadaAJogador01 = jogadaAJogador01;
+	public void setJogadaJogador01(int jogadaJogador01) {
+		this.jogadaJogador01 = jogadaJogador01;
 	}
 
-	public int getJogadaAJogador02() {
-		return jogadaAJogador02;
+	public int getJogadaJogador02() {
+		return jogadaJogador02;
 	}
 	
-	public void setJogadaAJogador02(int jogadaAJogador02) {
-		this.jogadaAJogador02 = jogadaAJogador02;
+	public void setJogadaJogador02(int jogadaJogador02) {
+		this.jogadaJogador02 = jogadaJogador02;
 	}
 
 	public int acaoRodada() {
 		int resultado = 0;
-		if (jogadaAJogador01 == jogadaAJogador02) {
+		if (jogadaJogador01 == jogadaJogador02) {
 			resultado = 0;
 		}
-		else if ((jogadaAJogador01 - jogadaAJogador02) == -1) {
+		else if ((jogadaJogador01 - jogadaJogador02) == -1) {
 			resultado = -1;
 		}
-		else if ((jogadaAJogador01 - jogadaAJogador02) == 2) {
+		else if ((jogadaJogador01 - jogadaJogador02) == 2) {
 			resultado = 2;
 		}
-		else if ((jogadaAJogador01 - jogadaAJogador02) == 1) {
+		else if ((jogadaJogador01 - jogadaJogador02) == 1) {
 			resultado = 1;
 		}
-		else if ((jogadaAJogador01 - jogadaAJogador02) == -2) {
+		else if ((jogadaJogador01 - jogadaJogador02) == -2) {
 			resultado = -2;
 		}
 		return resultado;
