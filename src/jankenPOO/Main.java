@@ -10,7 +10,8 @@ public class Main {
 		int selecaoMenu;
 
 		System.out.println("======== Bem vindo ao JankenPOO ========");
-		System.out.println("Uma criação de Douglas, Gustavo e Thiago\n");
+		System.out.println(
+				"Uma criação de Douglas Henrique Vasconcelos Campos, Gustavo Cainã Branco e Thiago Monteiro Fronza\n");
 
 		System.out.println("[1] Iniciar jogo com dois jogadores.");
 		System.out.println("[2] Iniciar jogo contra o computador.");
@@ -50,11 +51,11 @@ public class Main {
 				} else if (partidaHumana.acaoRodada() == -1 || partidaHumana.acaoRodada() == 2) {
 					System.out.println("\nVitoria do jogador " + jogador02.toString() + ".");
 				}
-				
+
 				System.out.print("\nDeseja jogar novamente? [1] SIM [0] NÃO --> ");
 				novaRodada = Integer.valueOf(scanner.nextLine());
 			}
-			
+
 			System.out.println("\nObrigado por jogar o jankenPOO!");
 		}
 
@@ -77,7 +78,7 @@ public class Main {
 				PartidaComputador partidaComputador = new PartidaComputador(jogadaJogadorH);
 
 				partidaComputador.setJogadaJogadorC();
-				
+
 				System.out.println("\nO computador escolheu " + partidaComputador.retornoJogada() + ".");
 
 				if (partidaComputador.acaoRodada() == 0) {
@@ -87,19 +88,18 @@ public class Main {
 				} else if (partidaComputador.acaoRodada() == -1 || partidaComputador.acaoRodada() == 2) {
 					System.out.println("\nVitoria do computador.");
 				}
-				
+
 				System.out.print("\nDeseja jogar novamente? [1] SIM [0] NÃO --> ");
 				novaRodada = Integer.valueOf(scanner.nextLine());
 			}
-			
+
 			System.out.println("\nObrigado por jogar o jankenPOO!");
-			
-			} 
-		
+
+		}
+
 		else if (selecaoMenu == 0) {
 			System.out.println("\nObrigado por jogar o jankenPOO!");
 
-			}
 		}
 	}
-
+}
